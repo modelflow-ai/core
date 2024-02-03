@@ -11,14 +11,19 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ModelflowAi\Core\DecisionTree;
+namespace ModelflowAi\Core\Factory;
 
 use ModelflowAi\Core\Model\AIModelAdapterInterface;
-use ModelflowAi\Core\Request\AIRequestInterface;
 
-interface DecisionRuleInterface
+interface TextAdapterFactoryInterface
 {
-    public function matches(AIRequestInterface $request): bool;
-
-    public function getAdapter(): AIModelAdapterInterface;
+    /**
+     * @param array{
+     *     model: string,
+     *     image_to_text: bool,
+     *     functions: bool,
+     *     priority: int,
+     * } $options
+     */
+    public function createTextAdapter(array $options): AIModelAdapterInterface;
 }

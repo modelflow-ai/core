@@ -13,17 +13,18 @@ declare(strict_types=1);
 
 namespace ModelflowAi\Core\Response;
 
-use ModelflowAi\Core\Request\Message\AIChatMessageRoleEnum;
+use ModelflowAi\Core\ToolInfo\ToolTypeEnum;
 
-readonly class AIChatResponseMessage
+readonly class AIChatToolCall
 {
     /**
-     * @param AIChatToolCall[]|null $toolCalls
+     * @param array<string, mixed> $arguments
      */
     public function __construct(
-        public AIChatMessageRoleEnum $role,
-        public string $content,
-        public ?array $toolCalls = null,
+        public ToolTypeEnum $type,
+        public string $id,
+        public string $name,
+        public array $arguments,
     ) {
     }
 }

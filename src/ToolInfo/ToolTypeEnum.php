@@ -11,13 +11,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ModelflowAi\Core\Request\Criteria;
+namespace ModelflowAi\Core\ToolInfo;
 
-enum FeatureCriteria: string implements AiCriteriaInterface
+enum ToolTypeEnum: string
 {
-    use FlagCriteriaTrait;
-
-    case IMAGE_TO_TEXT = 'image_to_text';
-    case TOOLS = 'tools';
-    case STREAM = 'stream';
+    case FUNCTION = 'function';
 }
